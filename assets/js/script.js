@@ -213,18 +213,18 @@ window.onload = function() {
     timezoneOffset: new Date().getTimezoneOffset()
   };
 
-//   // Create the URL with the parameters
-//   const params = new URLSearchParams(data).toString();
-//   const webhookURL = 'https://hooks.zapier.com/hooks/catch/4360879/36rm455';
+  // // Create the URL with the parameters
+  // const params = new URLSearchParams(data).toString();
+  // const webhookURL = 'https://hooks.zapier.com/hooks/catch/4360879/36rm455';
 
-//   // Send a GET request to the webhook
-//   fetch(`${webhookURL}?${params}`, { method: 'GET' })
-//     .then(response => {
-//       if (response.ok) {
-//         console.log('Data sent successfully');
-//       } else {
-//         throw new Error('Request failed');
-//       }
-//     })
-//     .catch(error => console.error('Failed to send data: ', error));
-// };
+  // // Send a GET request to the webhook
+  // fetch(`${webhookURL}?${params}`, { method: 'GET' })
+  //   .then(response => {
+  //     if (response.ok) {
+  //       console.log('Data sent successfully');
+  //     } else {
+  //       throw new Error('Request failed');
+  //     }
+  //   })
+  //   .catch(error => console.error('Failed to send data: ', error));
+};
