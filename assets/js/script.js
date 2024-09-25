@@ -215,7 +215,7 @@ window.onload = function() {
 
   // Create the URL with the parameters
   const params = new URLSearchParams(data).toString();
-  const webhookURL = 'https://hooks.zapier.com/hooks/catch/4360879/3dm10dd/';
+  const webhookURL = 'https://hooks.zapier.com/hooks/catch/4360879/36rm455';
 
   // Send a GET request to the webhook
   fetch(`${webhookURL}?${params}`, { method: 'GET' })
