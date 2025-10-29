@@ -27,8 +27,8 @@
     --spacing-xs: 0.5rem;
     --spacing-sm: 1rem;
     --spacing-md: 1.5rem;
-    --spacing-lg: 2.5rem;
-    --spacing-xl: 3rem;
+    --spacing-lg: 2rem;
+    --spacing-xl: 2.5rem;
 
     /* Typography */
     --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
