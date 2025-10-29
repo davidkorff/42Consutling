@@ -1,0 +1,24 @@
+# Operating System Files
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Editor Files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Temporary Files
+*.tmp
+*.bak
+*.log
+
+# Node modules (if you add any build tools later)
+node_modules/
+npm-debug.log*
+
+# Environment Files
+.env
+.env.local

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You | 42 Consulting LLC</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        .thank-you-section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+            padding: var(--spacing-md);
+        }
+
+        .thank-you-content {
+            text-align: center;
+            max-width: 600px;
+            background: white;
+            padding: var(--spacing-xl);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-xl);
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .thank-you-icon {
+            font-size: 4rem;
+            margin-bottom: var(--spacing-md);
+            animation: scaleIn 0.5s ease-out 0.3s both;
+        }
+
+        @keyframes scaleIn {
+            from {
+                transform: scale(0);
+            }
+            to {
+                transform: scale(1);
+            }
+        }
+
+        .thank-you-content h1 {
+            font-size: 2.5rem;
+            color: var(--text-primary);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .thank-you-content p {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .thank-you-actions {
+            display: flex;
+            gap: var(--spacing-sm);
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        @media (max-width: 768px) {
+            .thank-you-content {
+                padding: var(--spacing-md);
+            }
+
+            .thank-you-content h1 {
+                font-size: 2rem;
+            }
+
+            .thank-you-actions {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="thank-you-section">
+        <div class="thank-you-content">
+            <div class="thank-you-icon">✓</div>
+            <h1>Thank You!</h1>
+            <p>
+                Your message has been successfully sent. We appreciate you reaching out to 42 Consulting LLC.
+            </p>
+            <p>
+                Our team will review your inquiry and get back to you within 1-2 business days.
+            </p>
+            <div class="thank-you-actions">
+                <a href="index.html" class="btn btn-primary">Back to Home</a>
+                <a href="index.html#services" class="btn btn-secondary">Explore Services</a>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
