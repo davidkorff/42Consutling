@@ -72,33 +72,39 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 // ===================================
 const observerOptions = {
     threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
+    rootMargin: '0px 0px -100px 0px'
 };
 
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.classList.add('visible');
-            observer.unobserve(entry.target);
+            // Don't unobserve to allow re-triggering if needed
         }
     });
 }, observerOptions);
 
-// Observe all elements with fade-in class
-document.querySelectorAll('.fade-in').forEach(element => {
-    observer.observe(element);
-});
-
 // Add fade-in class to service cards
 document.querySelectorAll('.service-card').forEach((card, index) => {
     card.classList.add('fade-in');
-    card.style.transitionDelay = `${index * 0.1}s`;
+    card.style.transitionDelay = `${index * 0.05}s`;
 });
 
 // Add fade-in class to deliverable cards
 document.querySelectorAll('.deliverable-card').forEach((card, index) => {
     card.classList.add('fade-in');
-    card.style.transitionDelay = `${index * 0.05}s`;
+    card.style.transitionDelay = `${index * 0.03}s`;
+});
+
+// Now observe all elements with fade-in class (after adding them)
+document.querySelectorAll('.fade-in').forEach(element => {
+    observer.observe(element);
+
+    // Immediately show elements already in viewport
+    const rect = element.getBoundingClientRect();
+    if (rect.top < window.innerHeight && rect.bottom > 0) {
+        element.classList.add('visible');
+    }
 });
 
 // ===================================
