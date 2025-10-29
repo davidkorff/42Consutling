@@ -1,0 +1,21 @@
+42 Consulting LLC
+Technology Solutions for MGAs and Carriers
+
+42 Consulting LLC is a technology consulting firm specializing in building, integrating, and optimizing systems for Managing General Agents (MGAs), carriers, and brokers across the insurance industry. 
+Our work focuses on the full lifecycle of property and casualty insurance technology—from submission intake to policy management and reporting.
+
+CORE CAPABILITIES
+• Broker Portals and Submission Intake: Custom portals for submission intake, document management, and automated compliance.
+• Rating Engines and Pricing Models: Automated underwriting and pricing logic across multiple lines.
+• Policy Administration Integrations: Full-service integrations with leading policy admin platforms, including custom APIs and middleware.
+• Automation and Workflow Optimization: Streamlined workflows, document automation, and compliance tracking.
+• Data and Reporting: Data warehousing, dashboards, and analytics for better business insight.
+• System Migrations and Book Rolls: Full lifecycle data conversions, system mergers, and validation.
+• Managed Integrations and Support: Ongoing integration maintenance, version management, and optimization.
+
+WHAT WE DELIVER
+• Seamless technology for MGAs and carriers
+• Faster quoting and submissions
+• Automated compliance and reporting
+• Centralized data and workflow efficiency
+• Trusted by leading insurance groups
