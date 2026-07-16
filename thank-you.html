@@ -93,11 +93,20 @@
             <p>
                 Our team will review your inquiry and get back to you within 1-2 business days.
             </p>
+            <p id="reference" style="display:none;font-size:0.875rem"></p>
             <div class="thank-you-actions">
                 <a href="index.html" class="btn btn-primary">Back to Home</a>
                 <a href="index.html#services" class="btn btn-secondary">Explore Services</a>
             </div>
         </div>
     </section>
+    <script>
+        const requestId = new URLSearchParams(window.location.search).get('requestId');
+        if (requestId) {
+            const reference = document.getElementById('reference');
+            reference.textContent = `Confirmation: ${requestId}`;
+            reference.style.display = 'block';
+        }
+    </script>
 </body>
 </html>

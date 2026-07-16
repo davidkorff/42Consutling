@@ -100,39 +100,12 @@ Edit the CSS variables in `styles.css` (lines 10-20):
 }
 ```
 
-### Contact Form Setup (FormSubmit - FREE)
+### Contact Form
 
-The contact form uses **FormSubmit**, a free service perfect for static sites on GitHub Pages.
-
-**Setup Instructions:**
-
-1. **Update Your Email** in `index.html` (line 340):
-   ```html
-   <form action="https://formsubmit.co/YOUR_EMAIL_HERE" method="POST">
-   ```
-   Replace `YOUR_EMAIL_HERE` with your actual email (e.g., `info@42consultingllc.com`)
-
-2. **Update the Thank You Page URL** in `index.html` (line 343):
-   ```html
-   <input type="hidden" name="_next" value="https://yourusername.github.io/yourrepo/thank-you.html">
-   ```
-   Replace with your actual GitHub Pages URL
-
-3. **First Submission Verification:**
-   - The FIRST time someone submits the form, FormSubmit will send YOU a verification email
-   - Click the verification link in that email
-   - After verification, all future submissions will go directly to your email
-
-**Form Features:**
-- Spam protection included
-- Email notifications with form data
-- Redirects to custom thank-you page
-- No backend code required
-- Completely free forever
-
-**Alternative Services:**
-If you prefer a different service, here are other options:
-- **Formspree** (formspree.io) - Free tier available, requires signup
+The static site posts to the first-party Deep Thought intake endpoint at
+`https://42ims.com/api/public/contact`. The endpoint validates and rate-limits
+the inquiry, sends it to `contact@42consultingllc.com`, and redirects to the
+local thank-you page only after the production email provider accepts it.
 - **Web3Forms** (web3forms.com) - Free, simple setup
 - **Getform** (getform.io) - Free tier with 50 submissions/month
 
