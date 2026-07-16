@@ -4,17 +4,14 @@ Follow these steps to get your 42 Consulting website live on GitHub Pages with a
 
 ## Step 1: Prepare Your Files
 
-### Update Contact Form Email
-1. Open [index.html](index.html)
-2. Find line 340 (search for "formsubmit.co")
-3. Replace `YOUR_EMAIL_HERE` with your email:
-   ```html
-   <form action="https://formsubmit.co/info@42consultingllc.com" method="POST">
-   ```
+### Contact Form Endpoint
+The form in [index.html](index.html) posts to the first-party endpoint at
+`https://42ims.com/api/public/contact`. Keep the hidden `source` field set to
+`42consultingllc.com`; the server owns the recipient and success redirect.
 
 ### Update Email in Contact Section
 1. In the same [index.html](index.html) file
-2. Find line 325 (search for "info@42consultingllc.com")
+2. Search for `contact@42consultingllc.com`
 3. Update to your actual email if different
 
 ## Step 2: Deploy to GitHub Pages
@@ -36,24 +33,14 @@ Follow these steps to get your 42 Consulting website live on GitHub Pages with a
 4. Click **Save**
 5. Your site will be published at: `https://yourusername.github.io/repositoryname/`
 
-## Step 3: Update the Thank You Page URL
-
-1. Once you know your GitHub Pages URL, open [index.html](index.html)
-2. Find line 343 (search for "_next")
-3. Update with your actual URL:
-   ```html
-   <input type="hidden" name="_next" value="https://yourusername.github.io/42consulting-website/thank-you.html">
-   ```
-
-## Step 4: Verify Contact Form
+## Step 3: Verify Contact Form
 
 1. Visit your live website
 2. Fill out the contact form and submit
-3. **Important:** FormSubmit will send YOU (not the visitor) a verification email
-4. Click the verification link in that email
-5. After verification, all future form submissions will go to your email
+3. Confirm the thank-you page displays a confirmation reference
+4. Confirm the message arrives through `contact@42consultingllc.com`
 
-## Step 5: Add Client Logos (Optional)
+## Step 4: Add Client Logos (Optional)
 
 1. Place client logo images in `assets/images/clients/`
 2. Open [index.html](index.html)
@@ -104,17 +91,17 @@ Follow these steps to get your 42 Consulting website live on GitHub Pages with a
 - [ ] Navigation menu works (including mobile hamburger menu)
 - [ ] All anchor links scroll smoothly to sections
 - [ ] Contact form submits successfully
-- [ ] You receive the FormSubmit verification email
-- [ ] After verification, form submissions arrive at your email
+- [ ] The thank-you page displays a confirmation reference
+- [ ] Form submissions arrive through `contact@42consultingllc.com`
 - [ ] Thank you page displays after form submission
 - [ ] Client logos display properly (if added)
 
 ## Troubleshooting
 
 ### Form Not Working
-- Make sure you verified the FormSubmit email
-- Check that the email address in the form action is correct
-- Ensure the _next URL points to your live GitHub Pages URL
+- Confirm `https://42ims.com/health` reports healthy
+- Confirm the form action is `https://42ims.com/api/public/contact`
+- Use the displayed confirmation reference when checking delivery logs
 
 ### Website Not Loading
 - Wait 5-10 minutes after enabling GitHub Pages
@@ -129,7 +116,6 @@ Follow these steps to get your 42 Consulting website live on GitHub Pages with a
 ## Need Help?
 
 - [GitHub Pages Documentation](https://docs.github.com/en/pages)
-- [FormSubmit Documentation](https://formsubmit.co/)
 - Check the main [README.md](README.md) for more details
 
 ---

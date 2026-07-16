@@ -344,7 +344,7 @@
                             <div class="contact-method-icon">📧</div>
                             <div>
                                 <h4>Email</h4>
-                                <a href="mailto:david@42consultingllc.com">david@42consultingllc.com</a>
+                                <a href="mailto:contact@42consultingllc.com">contact@42consultingllc.com</a>
                             </div>
                         </div>
                         <div class="contact-method">
@@ -358,12 +358,8 @@
                     </div>
                 </div>
                 <div class="contact-form-wrapper">
-                    <form class="contact-form" id="contactForm" action="https://formsubmit.co/david@42consultingllc.com" method="POST">
-                        <!-- FormSubmit Configuration -->
-                        <input type="hidden" name="_subject" value="New Contact Form Submission - 42 Consulting">
-                        <input type="hidden" name="_next" value="http://42consultingllc.com/thank-you.html">
-                        <input type="hidden" name="_captcha" value="true">
-                        <input type="hidden" name="_template" value="table">
+                    <form class="contact-form" id="contactForm" action="https://42ims.com/api/public/contact" method="POST">
+                        <input type="hidden" name="source" value="42consultingllc.com">
                         <input type="text" name="_honey" style="display:none">
 
                         <div class="form-group">

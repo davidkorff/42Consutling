@@ -110,9 +110,9 @@ document.querySelectorAll('.fade-in').forEach(element => {
 // ===================================
 // Contact Form Handling
 // ===================================
-// FormSubmit handles the actual submission
-// The form will redirect to FormSubmit's default thank you page
-// or you can customize with a _next field to redirect to your own page
+// The form posts to the first-party 42ims contact intake endpoint. That
+// endpoint sends through our transactional email provider and redirects back
+// to the local thank-you page only after the provider accepts the message.
 
 // ===================================
 // Parallax Effect for Hero Background
