@@ -110,9 +110,77 @@ document.querySelectorAll('.fade-in').forEach(element => {
 // ===================================
 // Contact Form Handling
 // ===================================
-// The form posts to the first-party 42ims contact intake endpoint. That
-// endpoint sends through our transactional email provider and redirects back
-// to the local thank-you page only after the provider accepts the message.
+// Turnstile adds cf-turnstile-response to the native form POST. The server
+// verifies that token before sending email and redirecting to thank-you.html.
+const contactForm = document.getElementById('contactForm');
+if (contactForm) {
+    const submitButton = contactForm.querySelector('button[type="submit"]');
+    const captchaStatus = document.getElementById('contactCaptchaStatus');
+    let verified = false;
+    let widgetId;
+    const setVerification = (passed, message) => {
+        verified = passed;
+        submitButton.disabled = !passed;
+        captchaStatus.textContent = message;
+    };
+    const unavailable = () => setVerification(false, 'Verification is unavailable. Please reload or email us directly.');
+    const loadingTimeout = setTimeout(unavailable, 15000);
+
+    contactForm.addEventListener('submit', (event) => {
+        if (!verified) {
+            event.preventDefault();
+            captchaStatus.textContent = 'Please complete the verification before sending.';
+            return;
+        }
+        submitButton.disabled = true;
+        captchaStatus.textContent = 'Sending your message…';
+    });
+    window.addEventListener('pageshow', (event) => {
+        if (event.persisted && widgetId !== undefined) {
+            setVerification(false, 'Please complete the verification again.');
+            window.turnstile.reset(widgetId);
+        }
+    });
+
+    (async () => {
+        try {
+            const response = await fetch('https://42ims.com/api/public/contact/config', {
+                signal: AbortSignal.timeout(10000),
+            });
+            if (!response.ok) throw new Error('Verification configuration unavailable');
+            const { siteKey } = await response.json();
+            if (typeof siteKey !== 'string' || !siteKey.trim()) throw new Error('Verification is not configured');
+            const script = document.createElement('script');
+            script.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit';
+            script.async = true;
+            script.onerror = () => {
+                clearTimeout(loadingTimeout);
+                unavailable();
+            };
+            script.onload = () => {
+                clearTimeout(loadingTimeout);
+                if (!window.turnstile) return unavailable();
+                captchaStatus.textContent = 'Please complete the verification.';
+                window.turnstile.ready(() => {
+                    widgetId = window.turnstile.render('#contactCaptcha', {
+                        sitekey: siteKey,
+                        action: 'contact',
+                        theme: 'light',
+                        size: contactForm.clientWidth < 300 ? 'compact' : 'flexible',
+                        callback: () => setVerification(true, 'Verification complete.'),
+                        'expired-callback': () => setVerification(false, 'Verification expired. Please verify again.'),
+                        'timeout-callback': () => setVerification(false, 'Verification timed out. Please try again.'),
+                        'error-callback': unavailable,
+                    });
+                });
+            };
+            document.head.appendChild(script);
+        } catch {
+            clearTimeout(loadingTimeout);
+            unavailable();
+        }
+    })();
+}
 
 // ===================================
 // Parallax Effect for Hero Background

@@ -378,7 +378,11 @@
                             <label for="message">Message</label>
                             <textarea id="message" name="message" rows="4" required></textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary btn-full">Send Message</button>
+                        <div id="contactCaptcha"></div>
+                        <p id="contactCaptchaStatus" class="contact-verification-status" role="status">Loading verification…</p>
+                        <p class="contact-verification-status">Having trouble? Email <a href="mailto:contact@42consultingllc.com">contact@42consultingllc.com</a>.</p>
+                        <noscript><p>Please enable JavaScript to verify and submit this form, or email us directly.</p></noscript>
+                        <button type="submit" class="btn btn-primary btn-full" disabled>Send Message</button>
                     </form>
                 </div>
             </div>
