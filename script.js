@@ -161,17 +161,15 @@ if (contactForm) {
                 clearTimeout(loadingTimeout);
                 if (!window.turnstile) return unavailable();
                 captchaStatus.textContent = 'Please complete the verification.';
-                window.turnstile.ready(() => {
-                    widgetId = window.turnstile.render('#contactCaptcha', {
-                        sitekey: siteKey,
-                        action: 'contact',
-                        theme: 'light',
-                        size: contactForm.clientWidth < 300 ? 'compact' : 'flexible',
-                        callback: () => setVerification(true, 'Verification complete.'),
-                        'expired-callback': () => setVerification(false, 'Verification expired. Please verify again.'),
-                        'timeout-callback': () => setVerification(false, 'Verification timed out. Please try again.'),
-                        'error-callback': unavailable,
-                    });
+                widgetId = window.turnstile.render('#contactCaptcha', {
+                    sitekey: siteKey,
+                    action: 'contact',
+                    theme: 'light',
+                    size: contactForm.clientWidth < 300 ? 'compact' : 'flexible',
+                    callback: () => setVerification(true, 'Verification complete.'),
+                    'expired-callback': () => setVerification(false, 'Verification expired. Please verify again.'),
+                    'timeout-callback': () => setVerification(false, 'Verification timed out. Please try again.'),
+                    'error-callback': unavailable,
                 });
             };
             document.head.appendChild(script);
