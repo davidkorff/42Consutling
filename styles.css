@@ -734,6 +734,18 @@ body {
     gap: var(--spacing-sm);
 }
 
+.contact-verification-status {
+    margin: 0;
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+}
+
+.contact-form button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
 .form-group {
     display: flex;
     flex-direction: column;

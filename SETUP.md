@@ -9,6 +9,13 @@ The form in [index.html](index.html) posts to the first-party endpoint at
 `https://42ims.com/api/public/contact`. Keep the hidden `source` field set to
 `42consultingllc.com`; the server owns the recipient and success redirect.
 
+The form loads its public Turnstile site key from
+`https://42ims.com/api/public/contact/config`. Before deploying, configure the
+matching contact CAPTCHA keys on the Hub and allow `42consultingllc.com` (including
+`www`) on the Cloudflare Managed widget. No secret belongs in this static site.
+The submit button stays disabled until verification succeeds; visitors can email
+`contact@42consultingllc.com` if verification is unavailable.
+
 ### Update Email in Contact Section
 1. In the same [index.html](index.html) file
 2. Search for `contact@42consultingllc.com`
